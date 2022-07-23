@@ -1,0 +1,42 @@
+关于ECDSA签名算法：
+参数：
+
+素数:q
+椭圆曲线参数:a,b
+G:椭圆曲线上的基点
+n:G的阶
+
+密钥生成: 
+
+对于签名者A
+选择随机整数d，1<=d<=n-1
+计算Q=dG
+即产生了公钥Q，私钥d
+
+对信息m签名：
+
+选取随机整数k，1<=k<=n-1
+计算P=kG, r=x mod n
+计算t=inv(k)
+计算e=H(m) H为SHA-1
+计算s=t(e+dr) mod n
+产生签名(r,s)
+
+验证签名(r,s)：
+求e=H(m)
+w=inv(s)
+u1=ew
+u2=rw
+求X=u1G+u2Q
+X=无穷远则拒绝，否则计算v=x1 mod n
+v=r时接受
+
+正确性：
+s=t(e+dr) mod n
+w=inv(s)
+k=inv(s)(e+dr)
+k=(es^-1+drs^-1) mod n
+k=(we+wdr) mod n
+u1G+u2Q=kG
+
+
