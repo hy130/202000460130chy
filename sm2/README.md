@@ -43,4 +43,14 @@ socket的使用与PGP没有太大的差异
 代码见SM2-sign.py和SM2-signclient.py
 运行结果：见图片SM2-sign
 
+
+project:sm2 2p decrypt with real network communication
+
+该实验中也使用了套接字，具体的步骤根据课件上的过程，首先由一个第三方在得知d1,d2之后利用
+其计算出公钥，利用该公钥进行加密得到c1,c2,c3，将其发送给d1生成方，d1生成方只能在d2
+生成方协助下才能够进行解密
+运行指导：先运行decrypt.py，再运行decrypt-client.py
+代码见decrypt.py和decrypt-client.py
+运行结果见图片decrypt
+
 注：关键步骤代码中皆有注释
